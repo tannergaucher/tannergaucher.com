@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ThemePicker/> renders correctly and matches the snapshot 1`] = `
+<div
+  className="sc-bdVaJa DlJkq"
+>
+  <img
+    alt="moon"
+    style={
+      Object {
+        "height": "20px",
+        "width": "20px",
+      }
+    }
+  />
+</div>
+`;

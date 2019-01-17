@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Bio/> renders correctly and matches the snapshot 1`] = `
+Array [
+  <div
+    className="sc-jqCOkK etIIiC sc-gqjmRU ebWtEN"
+  >
+    <span
+      aria-label="technologist emoji"
+      role="img"
+    >
+      👨‍💻
+    </span>
+    Tanner Gaucher
+  </div>,
+  <div
+    className="sc-jqCOkK fXSSaI sc-gqjmRU igXrRB"
+  >
+    <span
+      aria-label="toolbox emoji"
+      role="img"
+    >
+      🧰
+    </span>
+  </div>,
+  <div
+    className="sc-jqCOkK fXSSaI sc-gqjmRU igXrRB"
+  >
+    <span
+      aria-label="writing hand emoji"
+      role="img"
+    >
+      ✍️
+    </span>
+  </div>,
+]
+`;

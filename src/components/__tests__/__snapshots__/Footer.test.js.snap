@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer/> renders correctly and matches the snapshot 1`] = `
+<MockedLink
+  className="sc-bdVaJa fCGAPp"
+  fontSize={
+    Array [
+      1,
+    ]
+  }
+  mb={2}
+  none="true"
+  style={
+    Object {
+      "alignSelf": "center",
+    }
+  }
+  to="/"
+>
+  <div
+    className="sc-uJMKN eIQQgj sc-VigVT jCvPJb"
+  >
+    <span
+      aria-label="technologist emoji"
+      role="img"
+    >
+      👨‍💻
+    </span>
+    Tanner Gaucher
+  </div>
+</MockedLink>
+`;

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Post/> renders and matches snapshot 1`] = `
+<MockedLink
+  className="sc-jqCOkK qFArh"
+  none="true"
+  primary="true"
+  to="fake-post-slug"
+>
+  <div
+    className="sc-bbmXgH cJydhv sc-bwzfXH hFUbDu sc-bdVaJa iBHnqn"
+  >
+    <div
+      className="sc-uJMKN eZyOLu sc-gqjmRU jmmWQb"
+    >
+      10.25.2018
+    </div>
+    <div
+      className="sc-uJMKN bSMuRG sc-gqjmRU bmbyAD"
+    >
+      hello world
+    </div>
+    <div
+      className="sc-gqjmRU kuSGKZ"
+    >
+      fake intro sentence
+    </div>
+  </div>
+</MockedLink>
+`;
