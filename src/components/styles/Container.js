@@ -5,9 +5,8 @@ const Container = styled.div`
   flex-flow: column;
   padding-left: 1rem;
   padding-right: 1rem;
-  max-width: 36em;
-  margin: 0 auto;
-  margin-top: 2em;
+  max-width: 34em;
+  margin: 2em auto 3em;
 `
 
 export default Container

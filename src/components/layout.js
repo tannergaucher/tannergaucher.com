@@ -14,7 +14,7 @@ export default ({ children }) => (
       <>
         <GlobalStyle />
         <Header />
-        <Inner>{children}</Inner>`{' '}
+        <Inner>{children}</Inner>
       </>
     </ThemeProvider>
   </>

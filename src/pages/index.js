@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/layout'
 import Link from '../components/styles/Link'
-import formatDate from '../utils/formatDate'
 
 import Date from '../components/styles/Date'
 import Container from '../components/styles/Container'
@@ -19,7 +18,6 @@ const StyledIndex = styled.div`
     margin-bottom: 0.5em;
     padding: 0.5em;
     border-radius: 3px;
-    background-image: linear-gradient(80deg, #fdfbfb 0%, #ebedee 100%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   }
   .post-date {
@@ -67,7 +65,7 @@ export default ({ data }) => {
             return (
               <Link to={slug} key={post.node.id} inherit="true">
                 <div className="post">
-                  <Date className="post-date">{formatDate(date)}</Date>
+                  <Date className="post-date">{date}</Date>
                   <h6 className="post-time">{post.node.timeToRead} min</h6>
                   <h2 className="post-title">{title}</h2>
                   <div className="post-intro">{intro}</div>

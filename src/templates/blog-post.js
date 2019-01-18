@@ -3,11 +3,19 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import Layout from '../components/layout'
-import formatDate from '../utils/formatDate'
 import Container from '../components/styles/Container'
 import Date from '../components/styles/Date'
 
 const StyledPost = styled.article`
+  .post-title {
+    margin-top: 0;
+  }
+
+  .post-date {
+    margin-top: 0;
+    margin-bottom: 5em;
+  }
+
   @media (max-width: 400px) {
     .nav-links {
       display: grid;
@@ -27,8 +35,8 @@ export default ({ data, pageContext }) => {
     <Layout>
       <StyledPost>
         <Container>
-          <h1 className="title">{title}</h1>
-          <Date className="post-date">{formatDate(date)}</Date>
+          <h1 className="post-title">{title}</h1>
+          <Date className="post-date">{date}</Date>
           <MDXRenderer>{data.mdx.code.body}</MDXRenderer>
 
           {/* refactor to component? */}
