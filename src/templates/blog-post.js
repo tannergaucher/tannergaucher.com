@@ -14,9 +14,9 @@ export default ({ data, pageContext }) => {
     <Layout>
       <SEO
         title={title}
-        description={description || intro || 'nothing'}
-        url={data.mdx.fields.slug}
-        article
+        description={intro || 'nothing'}
+        pathname={data.mdx.fields.slug}
+        article={true}
       />
       <StyledPost>
         <Container>
