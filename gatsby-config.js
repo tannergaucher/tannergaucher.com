@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `Tanner Gaucher`,
-    titleTemplate: `TG || Web Dev`,
+    titleTemplate: `Tanner G`,
     subtitle: `Software Developer`,
-    description: `Web Development Blog and Personal Portfolio`,
+    description: `Web Development Blog && Personal Portfolio`,
     url: `https://www.tannergaucher.com`,
     image: `/images/embed.png`,
     twitterUsername: `tanner`,
