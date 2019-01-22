@@ -7,53 +7,7 @@ import Link from '../components/styles/Link'
 import Date from '../components/styles/Date'
 import Container from '../components/styles/Container'
 
-const StyledIndex = styled.div`
-  .post {
-    display: grid;
-    grid-gap: 2.5px;
-    grid-template-columns: 8fr 8fr 40px;
-    padding: 1rem;
-    line-height: 1;
-    transition: 0.3s;
-    margin-bottom: 0.5em;
-    padding: 0.5em;
-    border-radius: 3px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-  }
-  .post-date {
-    align-self: end;
-    margin: 0;
-  }
-  .post-title {
-    margin: 0;
-    grid-column: 1 / 3;
-  }
-  .post-time {
-    margin: 0;
-    grid-column: 3;
-    justify-self: end;
-    align-self: end;
-    font-weight: lighter;
-    /* font-size: 15px; */
-  }
-  .post-intro {
-    grid-column: 1 / 3;
-    font-size: 18px;
-    align-self: center;
-    font-weight: 300;
-  }
-
-  @media (max-width: 400px) {
-    .post {
-      grid-gap: 25px;
-    }
-    .post-title {
-      grid-column: 1 / -1;
-    }
-  }
-`
 export default ({ data }) => {
-  console.log(data)
   const { edges } = data.allMdx
   return (
     <Layout>
@@ -96,6 +50,51 @@ export const query = graphql`
           }
         }
       }
+    }
+  }
+`
+
+const StyledIndex = styled.div`
+  .post {
+    display: grid;
+    grid-gap: 2.5px;
+    grid-template-columns: 8fr 8fr 40px;
+    padding: 1rem;
+    line-height: 1;
+    transition: 0.3s;
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  }
+  .post-date {
+    align-self: end;
+    margin: 0;
+  }
+  .post-title {
+    margin: 0;
+    grid-column: 1 / 3;
+  }
+  .post-time {
+    margin: 0;
+    grid-column: 3;
+    justify-self: end;
+    align-self: end;
+    font-weight: lighter;
+  }
+  .post-intro {
+    grid-column: 1 / 3;
+    font-size: 18px;
+    align-self: center;
+    font-weight: 300;
+  }
+
+  @media (max-width: 400px) {
+    .post {
+      grid-gap: 25px;
+    }
+    .post-title {
+      grid-column: 1 / -1;
     }
   }
 `

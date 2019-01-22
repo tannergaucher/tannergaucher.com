@@ -1,18 +1,14 @@
 module.exports = {
   siteMetadata: {
     title: `Tanner Gaucher`,
-    subtitle: `JS, React, Graphql, Node`,
-    description: `Self Learning and Web Development`,
+    titleTemplate: `TG || Web Dev`,
+    subtitle: `Software Developer`,
+    description: `Web Development Blog and Personal Portfolio`,
+    url: `https://www.tannergaucher.com`,
+    image: `/images/embed.png`,
+    twitterUsername: `tanner`,
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-web-font-loader',
-      options: {
-        google: {
-          families: ['Roboto Mono', 'Roboto', 'Open Sans', 'Inconsolata'],
-        },
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -5,34 +5,19 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import Layout from '../components/layout'
 import Container from '../components/styles/Container'
 import Date from '../components/styles/Date'
-
-const StyledPost = styled.article`
-  .post-title {
-    margin-top: 0;
-  }
-
-  .post-date {
-    margin-top: 0;
-    margin-bottom: 5em;
-  }
-
-  @media (max-width: 400px) {
-    .nav-links {
-      display: grid;
-      grid-row: auto;
-
-      > * {
-        justify-self: center;
-      }
-    }
-  }
-`
+import SEO from '../components/SEO'
 
 export default ({ data, pageContext }) => {
-  const { title, date } = data.mdx.frontmatter
+  const { title, date, description, intro } = data.mdx.frontmatter
   const { next, previous } = pageContext
   return (
     <Layout>
+      <SEO
+        title={title}
+        description={description || intro || 'nothing'}
+        url={data.mdx.fields.slug}
+        article
+      />
       <StyledPost>
         <Container>
           <h1 className="post-title">{title}</h1>
@@ -67,9 +52,33 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date
+        description
+        intro
       }
       fields {
         slug
+      }
+    }
+  }
+`
+
+const StyledPost = styled.article`
+  .post-title {
+    margin-top: 0;
+  }
+
+  .post-date {
+    margin-top: 0;
+    margin-bottom: 5em;
+  }
+
+  @media (max-width: 400px) {
+    .nav-links {
+      display: grid;
+      grid-row: auto;
+
+      > * {
+        justify-self: center;
       }
     }
   }
