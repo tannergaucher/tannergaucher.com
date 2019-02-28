@@ -23,7 +23,6 @@ export default ({ data, pageContext }) => {
           <h1 className="post-title">{title}</h1>
           <Date className="post-date">{date}</Date>
           <MDXRenderer>{data.mdx.code.body}</MDXRenderer>
-
           {/* refactor to component? */}
           {/* <div className="nav-links">
             {previous && (
