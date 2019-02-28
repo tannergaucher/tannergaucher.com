@@ -8,7 +8,14 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
+        allMdx(
+          sort: { order: DESC, fields: [frontmatter___date] },
+          ${
+            process.env.NODE_ENV === 'production'
+              ? 'filter: {frontmatter: {draft: {ne: true}}}'
+              : ''
+          }
+          ) {
           edges {
             node {
               fields {
@@ -71,10 +78,14 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `title`,
       value: node.frontmatter.title,
     })
+
+    createNodeField({
+      node,
+      name: `draft`,
+      value: node.frontmatter.draft,
+    })
   }
 }
-
-//pages
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
