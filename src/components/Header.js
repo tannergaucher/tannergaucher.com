@@ -1,8 +1,6 @@
-// rafc snippet
 import React from 'react'
 import styled from 'styled-components'
 import Link from '../components/styles/Link'
-import github from '../images/github.png'
 
 const StyledHeader = styled.header`
   display: flex;
@@ -48,13 +46,6 @@ const Header = () => (
         <h5 className="last">Gaucher</h5>
       </Link>
     </div>
-    {/* <div className="right">
-      <ul>
-        <li>
-          <img src={github} height="20px" className="git" />
-        </li>
-      </ul>
-    </div> */}
   </StyledHeader>
 )
 
