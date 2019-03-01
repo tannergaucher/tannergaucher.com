@@ -9,11 +9,9 @@ const StyledHeader = styled.header`
 
   h5 {
     margin: 0;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier;
   }
-  ul {
-    list-style: none;
-    display: flex;
-  }
+
   .first {
     align-self: end;
     line-height: 1;
@@ -21,9 +19,9 @@ const StyledHeader = styled.header`
 
   .first,
   .last {
-    font-weight: 500;
+    font-weight: 100;
     letter-spacing: -0.03em;
-    line-height: 0.78;
+    line-height: 0.68;
   }
 
   .left {

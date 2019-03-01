@@ -47,7 +47,7 @@ export const query = graphql`
           timeToRead
           frontmatter {
             title
-            date
+            date(formatString: "MMMM DD, YYYY")
             intro
           }
           fields {
@@ -68,9 +68,13 @@ const StyledIndex = styled.div`
     line-height: 1;
     transition: 0.3s;
     margin-bottom: 0.5em;
-    padding: 0.5em;
     border-radius: 3px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      transform: scale(1.02);
+      transition: 0.3;
+    }
   }
   .post-date {
     align-self: end;

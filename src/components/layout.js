@@ -27,6 +27,8 @@ const GlobalStyle = createGlobalStyle`
   @import url('https://rsms.me/inter/inter.css');
 
 
+
+
   body {
     margin: 0;
     padding: 0;
@@ -36,14 +38,20 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: calc(17px + 0.4vw);
+  }
 
+  h1 {
+    font-size: 42px;
   }
 
   h1,h2,h3,h4,h5,h6 {
     font-family: 'Inter var', sans-serif;
+    letter-spacing: .03em;
+    font-weight: 600;
   }
 
   p {
     line-height: 1.5;
+    margin-bottom: 3em;
   }
 `

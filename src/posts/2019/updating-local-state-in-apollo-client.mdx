@@ -1,0 +1,32 @@
+---
+title: 'Updating Local State in Apollo Client'
+date: '2019-03-01'
+tags: ['Apollo Client', 'React', 'State Management']
+intro: When to use direct writes, and when to use client-side resolvers.
+draft: true
+---
+
+There are two ways to perform local state management in Apollo Client. Direct writes to the cache, and writing local client side resolvers.
+
+### Direct Writes to the Cache
+
+According to the docs, direct writes are for 1 off mutations that don't depend on data that is alread in the cache. And example of this would be writing an arbitrary string to the cache.
+
+The downside of this is that...
+
+```.js
+console.log('im some code')
+
+```
+
+### Client Side Resolvers
+
+Client side resolvers are called via react-apollo mutation components, just like server-side mutations. However, instead of calling a resolver on a GraphQL server, the @client directive directs the call to the client-side resolver map.
+
+Client side resolvers are written just like server side resolvers.
+
+---
+
+Resources:
+
+- [Apollo Client Docs](https://www.apollographql.com/docs/react/essentials/local-state.html#updating-local-state)
