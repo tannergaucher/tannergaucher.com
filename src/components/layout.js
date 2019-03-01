@@ -1,12 +1,8 @@
 import React from 'react'
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import theme from '../utils/theme'
 import Header from '../components/Header'
 import SEO from '../components/SEO'
-
-const Inner = styled.div`
-  min-height: calc(100vh - 60px);
-`
 
 export default ({ children }) => (
   <>
@@ -15,7 +11,7 @@ export default ({ children }) => (
         <SEO />
         <GlobalStyle />
         <Header />
-        <Inner>{children}</Inner>
+        <main>{children}</main>
       </>
     </ThemeProvider>
   </>
@@ -23,12 +19,7 @@ export default ({ children }) => (
 
 /* prettier-ignore */
 const GlobalStyle = createGlobalStyle`
-
   @import url('https://rsms.me/inter/inter.css');
-
-
-
-
   body {
     margin: 0;
     padding: 0;
@@ -37,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.primary};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: calc(17px + 0.4vw);
+    font-size: calc(17px + 0.3vw);
   }
 
   h1 {
@@ -47,11 +38,11 @@ const GlobalStyle = createGlobalStyle`
   h1,h2,h3,h4,h5,h6 {
     font-family: 'Inter var', sans-serif;
     letter-spacing: .03em;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   p {
-    line-height: 1.5;
-    margin-bottom: 3em;
+    line-height: 1.67;
+    margin-bottom: 2.8em;
   }
 `

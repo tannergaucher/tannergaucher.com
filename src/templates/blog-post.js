@@ -4,8 +4,30 @@ import styled from 'styled-components'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import Layout from '../components/layout'
 import Container from '../components/styles/Container'
-import Time from '../components/styles/Time'
+import Pre from '../components/styles/Pre'
+// import Link from '../components/styles/Link'
 import SEO from '../components/SEO'
+
+const Styled = styled.article`
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+  }
+  .title {
+    margin-top: 0;
+  }
+
+  .date {
+    margin-top: 0;
+    margin-bottom: 5em;
+  }
+
+  @media (max-width: 400px) {
+  }
+`
 
 export default ({ data, pageContext }) => {
   const { title, date, description, intro } = data.mdx.frontmatter
@@ -18,25 +40,13 @@ export default ({ data, pageContext }) => {
         pathname={data.mdx.fields.slug}
         article={true}
       />
-      <StyledPost>
-        <Container>
-          <h1 className="post-title">{title}</h1>
-          <Time className="post-date">{date}</Time>
+      <Container>
+        <Styled>
+          <h1 className="title">{title}</h1>
+          <Pre className="date">{date}</Pre>
           <MDXRenderer>{data.mdx.code.body}</MDXRenderer>
-          {/* <div className="nav-links">
-            {previous && (
-              <Link to={previous.fields.slug}>
-                <h6 className="nav-link prev"> {previous.fields.title}</h6>
-              </Link>
-            )}
-            {next && (
-              <Link to={next.fields.slug}>
-                <h6 className="nav-link next">{next.fields.title}</h6>
-              </Link>
-            )}
-          </div> */}
-        </Container>
-      </StyledPost>
+        </Styled>
+      </Container>
     </Layout>
   )
 }
@@ -49,33 +59,11 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "MM/DD/YY")
         intro
       }
       fields {
         slug
-      }
-    }
-  }
-`
-
-const StyledPost = styled.article`
-  .post-title {
-    margin-top: 0;
-  }
-
-  .post-date {
-    margin-top: 0;
-    margin-bottom: 5em;
-  }
-
-  @media (max-width: 400px) {
-    .nav-links {
-      display: grid;
-      grid-row: auto;
-
-      > * {
-        justify-self: center;
       }
     }
   }

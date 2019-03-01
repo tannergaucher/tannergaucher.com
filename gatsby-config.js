@@ -24,6 +24,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
       resolve: `gatsby-mdx`,
       options: {
         extensions: ['.mdx', '.md'],
@@ -57,8 +64,6 @@ module.exports = {
         trackingId: `UA-132758873-1`,
       },
     },
-    // 'gatsby-plugin-offline',
-    // `gatsby-remark-copy-linked-files`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,

@@ -1,3 +1,4 @@
-# Gatsby.js personal site and MDX blog
+# Personal Site and Blog
 
-tannergaucher.com
+- Gatsby
+- Mdx

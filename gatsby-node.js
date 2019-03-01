@@ -25,18 +25,6 @@ exports.createPages = ({ graphql, actions }) => {
                 scope
               }
             }
-            next {
-              fields {
-                slug
-                title
-              }
-            }
-            previous {
-              fields {
-                slug
-                title
-              }
-            }
           }
         }
       }
@@ -83,6 +71,18 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       node,
       name: `draft`,
       value: node.frontmatter.draft,
+    })
+
+    createNodeField({
+      node,
+      name: `resources`,
+      value: node.frontmatter.resources,
+    })
+
+    createNodeField({
+      node,
+      name: `featuredImage`,
+      value: node.frontmatter.featuredImage,
     })
   }
 }
