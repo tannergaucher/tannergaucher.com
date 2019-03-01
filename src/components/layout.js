@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
   h1,h2,h3,h4,h5,h6 {
     font-family: 'Inter var', sans-serif;
     letter-spacing: .03em;
-    font-weight: 400;
+    font-weight: 500;
   }
 
   p {

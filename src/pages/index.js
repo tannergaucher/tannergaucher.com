@@ -10,12 +10,12 @@ import Pre from '../components/styles/Pre'
 const Styled = styled.div`
   .post {
     display: grid;
-    grid-gap: 12px;
+    grid-gap: 10px;
     grid-template-areas:
       'date . time'
       'title title title'
       'intro intro intro';
-    line-height: 1;
+    line-height: 1.1;
     transition: 0.3s;
     margin-bottom: 3em;
 
@@ -69,8 +69,9 @@ export default ({ data }) => {
               <Link to={slug} key={id} inherit="true">
                 <div className="post">
                   <Pre className="date">{date}</Pre>
-                  <Pre className="time">{timeToRead} Min</Pre>
-                  <h2 className="title">{title}</h2>
+                  {/*  <Pre className="time">{timeToRead} Min</Pre> */}
+                  <h3 className="title">{title}</h3>
+                  {/* <h6 className="intro">{intro}</h6> */}
                   <Pre className="intro">{intro}</Pre>
                 </div>
               </Link>
