@@ -21,7 +21,7 @@ const StyledHeader = styled.header`
 
   .first,
   .last {
-    font-weight: 200;
+    font-weight: 500;
     letter-spacing: -0.03em;
     line-height: 0.78;
   }
@@ -31,10 +31,6 @@ const StyledHeader = styled.header`
     grid-template-rows: 1fr 1fr;
     margin-left: 1em;
     margin-top: 1em;
-  }
-
-  .right {
-    margin-right: 1em;
   }
 `
 

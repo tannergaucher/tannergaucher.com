@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import Layout from '../components/layout'
 import Container from '../components/styles/Container'
-import Date from '../components/styles/Date'
+import Time from '../components/styles/Time'
 import SEO from '../components/SEO'
 
 export default ({ data, pageContext }) => {
@@ -21,9 +21,8 @@ export default ({ data, pageContext }) => {
       <StyledPost>
         <Container>
           <h1 className="post-title">{title}</h1>
-          <Date className="post-date">{date}</Date>
+          <Time className="post-date">{date}</Time>
           <MDXRenderer>{data.mdx.code.body}</MDXRenderer>
-          {/* refactor to component? */}
           {/* <div className="nav-links">
             {previous && (
               <Link to={previous.fields.slug}>

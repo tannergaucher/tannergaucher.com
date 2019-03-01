@@ -1,7 +1,6 @@
 import React from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import theme from '../utils/theme'
-import '../utils/layout.css'
 import Header from '../components/Header'
 import SEO from '../components/SEO'
 
@@ -24,10 +23,27 @@ export default ({ children }) => (
 
 /* prettier-ignore */
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans');
+
+  @import url('https://rsms.me/inter/inter.css');
+
+
   body {
+    margin: 0;
+    padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background: ${props => props.theme.background};
     color: ${props => props.theme.primary};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: calc(17px + 0.4vw);
+
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'Inter var', sans-serif;
+  }
+
+  p {
+    line-height: 1.5;
   }
 `

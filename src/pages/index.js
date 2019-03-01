@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import Link from '../components/styles/Link'
 
-import Date from '../components/styles/Date'
+import Time from '../components/styles/Time'
 import Container from '../components/styles/Container'
 
 export default ({ data }) => {
@@ -19,8 +19,10 @@ export default ({ data }) => {
             return (
               <Link to={slug} key={post.node.id} inherit="true">
                 <div className="post">
-                  <Date className="post-date">{date}</Date>
-                  <h6 className="post-time">{post.node.timeToRead} min</h6>
+                  <Time className="post-date">{date}</Time>
+                  <h6 className="post-time">
+                    <Time>{post.node.timeToRead} Min</Time>
+                  </h6>
                   <h2 className="post-title">{title}</h2>
                   <div className="post-intro">{intro}</div>
                 </div>
@@ -61,7 +63,7 @@ const StyledIndex = styled.div`
   .post {
     display: grid;
     grid-gap: 2.5px;
-    grid-template-columns: 8fr 8fr 40px;
+    grid-template-columns: 8fr 8fr 100px;
     padding: 1rem;
     line-height: 1;
     transition: 0.3s;
@@ -83,13 +85,13 @@ const StyledIndex = styled.div`
     grid-column: 3;
     justify-self: end;
     align-self: end;
-    font-weight: lighter;
+    font-weight: 400;
+    font-size: 16px;
   }
   .post-intro {
     grid-column: 1 / 3;
-    font-size: 18px;
     align-self: center;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   @media (max-width: 400px) {
