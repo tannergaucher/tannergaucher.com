@@ -5,7 +5,6 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import Layout from '../components/layout'
 import Container from '../components/styles/Container'
 import Pre from '../components/styles/Pre'
-// import Link from '../components/styles/Link'
 import SEO from '../components/SEO'
 
 const Styled = styled.article`
@@ -30,21 +29,26 @@ const Styled = styled.article`
 `
 
 export default ({ data, pageContext }) => {
-  const { title, date, description, intro } = data.mdx.frontmatter
   const { next, previous } = pageContext
+  const {
+    code: { body },
+    frontmatter: { title, date, intro },
+    fields: { slug },
+  } = data.mdx
+
   return (
     <Layout>
       <SEO
         title={title}
         description={intro || 'nothing'}
-        pathname={data.mdx.fields.slug}
+        pathname={slug}
         article={true}
       />
       <Container>
         <Styled>
           <h1 className="title">{title}</h1>
           <Pre className="date">{date}</Pre>
-          <MDXRenderer>{data.mdx.code.body}</MDXRenderer>
+          <MDXRenderer>{body}</MDXRenderer>
         </Styled>
       </Container>
     </Layout>

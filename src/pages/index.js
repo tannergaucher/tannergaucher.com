@@ -61,7 +61,6 @@ export default ({ data }) => {
           {edges.map(post => {
             const {
               id,
-              timeToRead,
               frontmatter: { title, date, intro },
               fields: { slug },
             } = post.node
@@ -69,9 +68,7 @@ export default ({ data }) => {
               <Link to={slug} key={id} inherit="true">
                 <div className="post">
                   <Pre className="date">{date}</Pre>
-                  {/*  <Pre className="time">{timeToRead} Min</Pre> */}
                   <h3 className="title">{title}</h3>
-                  {/* <h6 className="intro">{intro}</h6> */}
                   <Pre className="intro">{intro}</Pre>
                 </div>
               </Link>
@@ -92,7 +89,6 @@ export const query = graphql`
       edges {
         node {
           id
-          timeToRead
           frontmatter {
             title
             date(formatString: "MM/DD/YY")
