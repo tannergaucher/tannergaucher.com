@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
+
 import Layout from '../components/layout'
 import Link from '../components/styles/Link'
 
@@ -10,14 +12,14 @@ import Pre from '../components/styles/Pre'
 const Styled = styled.div`
   .post {
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 0.5em;
     grid-template-areas:
       'date . time'
       'title title title'
       'intro intro intro';
     line-height: 1.1;
     transition: 0.3s;
-    margin-bottom: 3em;
+    margin-bottom: 5em;
 
     &:hover {
       transform: scale(1.02);
@@ -53,7 +55,8 @@ const Styled = styled.div`
 `
 
 export default ({ data }) => {
-  const { edges } = data.allMdx
+  const { edges } = data.posts
+  console.log(edges)
   return (
     <Layout>
       <Container>
@@ -82,7 +85,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allMdx(
+    posts: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { draft: { ne: true } } }
     ) {
@@ -93,6 +96,13 @@ export const query = graphql`
             title
             date(formatString: "MM/DD/YY")
             intro
+            featuredImage {
+              childImageSharp {
+                sizes {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
           }
           fields {
             slug
@@ -100,5 +110,8 @@ export const query = graphql`
         }
       }
     }
+    # image: file(absolutePath: {regex: {eq: "/me./jpg/"}}) {
+    # avatar image
+    # }
   }
 `

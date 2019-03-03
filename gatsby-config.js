@@ -55,6 +55,12 @@ module.exports = {
               aliases: {},
             },
           },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              // wrapperStyle: ``
+            },
+          },
         ],
       },
     },
