@@ -9,6 +9,8 @@ import Link from '../components/styles/Link'
 import Container from '../components/styles/Container'
 import Pre from '../components/styles/Pre'
 
+import { Heading } from 'rebass'
+
 const Styled = styled.div`
   .post {
     display: grid;
@@ -64,16 +66,30 @@ export default ({ data }) => {
           {edges.map(post => {
             const {
               id,
-              frontmatter: { title, date, intro },
+              frontmatter: {
+                title,
+                date,
+                intro,
+                featuredImage: {
+                  childImageSharp: { sizes },
+                },
+              },
               fields: { slug },
             } = post.node
             return (
               <Link to={slug} key={id} inherit="true">
                 <div className="post">
-                  <Pre className="date">{date}</Pre>
-                  <h3 className="title">{title}</h3>
-                  <Pre className="intro">{intro}</Pre>
+                  <Pre className="date" fontSize={[1, 2]}>
+                    {date}
+                  </Pre>
+                  <Heading className="title" fontSize={[3, 4]}>
+                    {title}
+                  </Heading>
+                  <Pre className="intro" fontSize={[1, 2]}>
+                    {intro}
+                  </Pre>
                 </div>
+                {/* <Img sizes={sizes} /> */}
               </Link>
             )
           })}

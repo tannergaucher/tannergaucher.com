@@ -1,38 +1,30 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
+import Img from 'gatsby-image'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import Layout from '../components/layout'
 import Container from '../components/styles/Container'
-import Pre from '../components/styles/Pre'
 import SEO from '../components/SEO'
 
-const Styled = styled.article`
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: 600;
-  }
-  .title {
-    margin-top: 0;
-  }
+import Link from '../components/styles/Link'
 
-  .date {
-    margin-top: 0;
-    margin-bottom: 5em;
-  }
+import Pre from '../components/styles/Pre'
 
-  @media (max-width: 400px) {
-  }
-`
+import { Heading, Text, Box } from 'rebass'
 
 export default ({ data, pageContext }) => {
   const { next, previous } = pageContext
+
   const {
     code: { body },
-    frontmatter: { title, date, intro },
+    frontmatter: {
+      title,
+      date,
+      intro,
+      featuredImage: {
+        childImageSharp: { sizes },
+      },
+    },
     fields: { slug },
   } = data.mdx
 
@@ -45,11 +37,31 @@ export default ({ data, pageContext }) => {
         article={true}
       />
       <Container>
-        <Styled>
-          <h1 className="title">{title}</h1>
-          <Pre className="date">{date}</Pre>
+        <article>
+          <Heading fontSize={[5, 6]}>{title}</Heading>
+          <Img sizes={sizes} />
+          <Pre fontSize={[1, 2]}>{date}</Pre>
           <MDXRenderer>{body}</MDXRenderer>
-        </Styled>
+
+          {next && (
+            <>
+              <Link to={next.fields.slug}>
+                <Heading fontSize={[1, 2]} css={{ textTransform: 'uppercase' }}>
+                  Next
+                </Heading>
+                <Text fontSize={[1, 2]}>{next.frontmatter.title}</Text>
+              </Link>
+            </>
+          )}
+          {previous && (
+            <Link to={previous.fields.slug}>
+              <Heading fontSize={[1, 2]} css={{ textTransform: 'uppercase' }}>
+                Previous
+              </Heading>
+              <Text fontSize={[1, 2]}>{previous.frontmatter.title}</Text>
+            </Link>
+          )}
+        </article>
       </Container>
     </Layout>
   )
@@ -65,6 +77,13 @@ export const pageQuery = graphql`
         title
         date(formatString: "MM/DD/YY")
         intro
+        featuredImage {
+          childImageSharp {
+            sizes {
+              ...GatsbyImageSharpSizes
+            }
+          }
+        }
       }
       fields {
         slug

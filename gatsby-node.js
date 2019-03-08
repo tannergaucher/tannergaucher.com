@@ -25,22 +25,50 @@ exports.createPages = ({ graphql, actions }) => {
                 scope
               }
             }
+            next {
+              frontmatter {
+                title
+              }
+              fields {
+                slug
+              }
+            }
+            previous {
+              frontmatter {
+                title
+              }
+              fields {
+                slug
+              }
+            }
           }
         }
       }
     `)
       .then(result => {
         const { edges } = result.data.allMdx
-        edges.forEach(({ node }) => {
+
+        edges.forEach(edge => {
+          const {
+            node: {
+              fields: { slug },
+              code: { scope },
+            },
+            next,
+            previous,
+          } = edge
+
           createPage({
-            path: node.fields.slug,
+            path: slug,
             component: componentWithMDXScope(
               path.resolve(`./src/templates/blog-post.js`),
-              node.code.scope,
+              scope,
               __dirname
             ),
             context: {
-              slug: node.fields.slug,
+              slug,
+              next: next || '',
+              previous: previous || '',
             },
           })
         })
